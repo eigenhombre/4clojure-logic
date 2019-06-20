@@ -44,8 +44,8 @@
     :tags ["TRS"]}
    {:title "A Fresh Success"
     :description "The succeed goal always succeeds; a succeeding value
-                  not bound to anything in particular is called a 'fresh' value, and
-                  is one of _0, _1, _2, ...."
+                  not bound to anything in particular is called a 'fresh' value,
+                  and is one of _0, _1, _2, ...."
     :tests '[(= __ (run* [q] succeed))]
     :tags ["TRS"]}
    {:title "Lettings 1"
