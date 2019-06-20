@@ -51,7 +51,14 @@
    (grandparent y x)))
 
 (with-db facts
-  [(run* [q]
-     (grandparent q 'Delores))
-   (run* [q]
-     (grandchild q 'Judy))])
+  (run* [q r]
+    (grandchild q r)))
+
+;; Exercise 1: add more people to fill out the family tree (or change
+;; it to mirror your own family's).  Write more relations and try more
+;; queries.
+
+;; Exercise 2: add a second relation, with data and sample queries.
+;; Example: gender + find great grandmothers of person X; find the cousins of Janet's grandson; etc.
+;; Example: professions + knowledge-of-person.  E.g. find all
+;; carpenters who know any of Janet's uncles.
