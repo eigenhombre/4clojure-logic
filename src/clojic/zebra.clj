@@ -95,3 +95,25 @@
 ;; drinks/smokes/house colors etc., meaning of adjacency, etc.; create
 ;; different data for the slots, and free variables.  At what
 ;; point does the problem become sufficiently well-specified?
+
+
+;; What if we want to look for left and right in a "circular" list?
+(defne lasto [x l]
+  ([_ [x]])
+  ([_ [_ . ?r]] (lasto x ?r)))
+
+(defn righto' [x y l]
+  (conde
+   ((righto x y l))
+   ((firsto l y)
+    (lasto x l))))
+
+(defn nexto'
+  "
+  If x and y are next to each other, then x is to the right of y, or y
+  is to the right of x.
+  "
+  [x y l]
+  (conde
+   ((righto' x y l))
+   ((righto' y x l))))
