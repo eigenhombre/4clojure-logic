@@ -82,8 +82,15 @@
 ;; 1. In the problem statement, if Time magazine had written, "Who
 ;; drinks ouzo?  Who has a brontosaurus?" how would the answers
 ;; change?
+;;
 ;; 2. If I change (run* ...) to (run 1 ...), how does the answer change?
+;;
 ;; 3. symbol-macrolet really is kind of cool, isn't it?
-;; 4. Adapt the existing code to your own "zebra puzzle": create
-;; different slots, data for the slots, and free variables.  At what
+;;
+;; 4. In Bath, England, the "circus" is a circular rather than linear
+;; road. How would you adapt the zebra problem to a circular topology?
+;;
+;; 5. Adapt the existing code to your own "zebra puzzle": change
+;; drinks/smokes/house colors etc., meaning of adjacency, etc.; create
+;; different data for the slots, and free variables.  At what
 ;; point does the problem become sufficiently well-specified?
