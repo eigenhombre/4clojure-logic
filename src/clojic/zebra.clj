@@ -1,4 +1,5 @@
 (ns clojic.zebra
+  (:refer-clojure :exclude [==])
   (:require [clojure.core.logic :refer [lvar defne conde all run run* firsto membero ==]])
   (:require [clojure.tools.macro :as macro]))
 
