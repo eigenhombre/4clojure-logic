@@ -1,5 +1,5 @@
 (ns clojic.zebra
-  (:require [clojure.core.logic :refer [lvar defne conde all run firsto membero ==]])
+  (:require [clojure.core.logic :refer [lvar defne conde all run run* firsto membero ==]])
   (:require [clojure.tools.macro :as macro]))
 
 ;; Solution based on https://github.com/swannodette/logic-tutorial:
@@ -31,6 +31,13 @@
 ;;=>
 '[<lvar:27919> <lvar:27920> <lvar:27921>]
 
+;; In what follows, each "house" is a vector containing:
+;; [nationality toxic-smoke-of-choice drink-of-choice pet house-color]
+;;
+;; The goal is to find five such vectors that satisfy the supplied
+;; constraints.  We use the _ symbol to represent an unknown ("fresh"
+;; logic var), which core.logic is free to bind to anything that
+;; satisfies all the constraints.
 (defn zebrao [hs]
   (macro/symbol-macrolet [_ (lvar)]
     (all
@@ -69,11 +76,14 @@
      ;; smoked:
      (nexto [_ _ _ 'fox _] [_ 'chesterfields _ _ _] hs))))
 
-(run 1 [q] (zebrao q))
-;;=>
-'([[norwegian kools _0 fox yellow]
-   [ukrainian chesterfields tea horse blue]
-   [englishman oldgolds milk snails red]
-   [spaniard lucky-strikes oj dog ivory]
-   [japanese parliaments coffee _1 green]])
+(run* [q] (zebrao q))
 
+;; Exercises:
+;; 1. In the problem statement, if Time magazine had written, "Who
+;; drinks ouzo?  Who has a brontosaurus?" how would the answers
+;; change?
+;; 2. If I change (run* ...) to (run 1 ...), how does the answer change?
+;; 3. symbol-macrolet really is kind of cool, isn't it?
+;; 4. Adapt the existing code to your own "zebra puzzle": create
+;; different slots, data for the slots, and free variables.  At what
+;; point does the problem become sufficiently well-specified?
